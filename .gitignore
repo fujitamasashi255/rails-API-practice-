@@ -95,3 +95,6 @@ yarn-debug.log*
 
 # ctags
 /tags
+
+# editor
+.editorconfig
