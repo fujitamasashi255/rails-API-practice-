@@ -3,6 +3,6 @@ FactoryBot.define do
     user { nil }
     title { "MyString" }
     contents { "MyText" }
-    status { 1 }
+    status { 0 }
   end
 end
