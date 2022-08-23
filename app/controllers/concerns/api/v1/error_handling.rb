@@ -12,18 +12,18 @@ module Api
 
       private
 
-      def render_404(e)
-        render_error(message: 'Record Not Found', status: 404, exception: e.message)
+      def render_404(error)
+        render_error(message: 'Record Not Found', status: 404, error: error.message)
       end
 
-      def render_500(e)
-        render_error(message: 'Internal Server Error', status: 500, exception: e.message)
+      def render_500(error)
+        render_error(message: 'Internal Server Error', status: 500, error: error.message)
       end
 
-      def render_error(message:, status:, **exceptions)
+      def render_error(message:, status:, **errors)
         response = {
           message: message,
-          exception: exceptions.values
+          errors: errors.values
         }
 
         render json: response, status: status
