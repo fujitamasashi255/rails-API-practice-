@@ -8,4 +8,8 @@ class Api::V1::AuthenticationsController < Api::V1::BaseController
       raise ActiveRecord::RecordNotFound
     end
   end
+
+  private
+
+  def form_authenticity_token; end
 end
