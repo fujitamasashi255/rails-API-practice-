@@ -8,9 +8,14 @@ module Api
       included do
         rescue_from StandardError, with: :render_500
         rescue_from ActiveRecord::RecordNotFound, with: :render_404
+        rescue_from ActiveRecord::RecordInvalid, with: :render_400
       end
 
       private
+
+      def render_400(error)
+        render_error(message: 'Record Not Registered', status: 400, error: error.message)
+      end
 
       def render_404(error)
         render_error(message: 'Record Not Found', status: 404, error: error.message)
