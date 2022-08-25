@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
-  has_many :api_keys
+  has_many :api_keys, dependent: :destroy
 
   def valid_api_key
     alive_api_key || api_keys.create(expires_at: expires_at)
