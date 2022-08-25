@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_08_25_180715) do
     t.datetime "expires_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["access_token"], name: "index_api_keys_on_access_token", unique: true
     t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
