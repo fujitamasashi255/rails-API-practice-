@@ -11,6 +11,11 @@ class User < ApplicationRecord
     alive_api_key || api_keys.create(expires_at: expires_at)
   end
 
+  def self.find_by_token(token)
+    api_key = ApiKey.find_by(access_token: token)
+    find(api_key.user_id)
+  end
+
   private
 
   def alive_api_key
