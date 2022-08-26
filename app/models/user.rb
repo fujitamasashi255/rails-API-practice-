@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   def valid_api_key
     alive_api_key || api_keys.create(expires_at: expires_at)
-  endz
+  end
 
   private
 
