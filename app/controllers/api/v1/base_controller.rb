@@ -3,6 +3,7 @@
 module Api
   module V1
     class BaseController < ApplicationController
+      include Api::V1::ErrorHandling
       include ActionController::HttpAuthentication::Basic::ControllerMethods
       include ActionController::HttpAuthentication::Token::ControllerMethods
 
