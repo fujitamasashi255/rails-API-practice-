@@ -12,8 +12,8 @@ module Api
       end
 
       def authenticate
-        authenticate_or_request_with_http_token do |token, options|
-          @_current_user = User.find_by_token token
+        authenticate_or_request_with_http_token do |token, _options|
+          @_current_user = ApiKey.find_by(access_token: token).user
         end
       end
 
