@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Articles", type: :request do
+RSpec.describe "Articles", type: :request, autodoc: true do
   let!(:user){ create(:user) }
   let!(:headers){
     { Authorization: "Bearer #{user.valid_api_key.access_token}" }
